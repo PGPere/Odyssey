@@ -1,6 +1,5 @@
 'use strict';
 
-
 const userForm = document.querySelector('form');
 let userName = '';
 const keyName = 'currentUser';
@@ -38,7 +37,8 @@ function questionConstructor(
   c,
   d,
   correct,
-  fileExtension = 'svg') {
+  fileExtension = 'svg'
+) {
   this.question = question;
   this.country = country;
   this.src = `images/flag-images/${country}.${fileExtension}`;
