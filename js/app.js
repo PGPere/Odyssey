@@ -1,5 +1,22 @@
 'use strict';
 
+
+const userForm = document.querySelector('form');
+let userName = '';
+const keyName = 'currentUser';
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let userNameInput = event.target.userName.value;
+  userName = userNameInput;
+  sessionStorage.setItem(keyName, userName);
+  window.open('quiz.html', '_self'); //quiz.html#quiz
+}
+
+if (userForm) {
+  userForm.addEventListener('submit', handleSubmit);
+}
+
 const quiz = document.getElementById('quiz');
 let btn = document.getElementById('submit');
 const labela = document.getElementById('atext');
@@ -8,7 +25,6 @@ const labelc = document.getElementById('ctext');
 const labeld = document.getElementById('dtext');
 const answers = document.querySelectorAll('.answer');
 let flag = document.querySelector('#quizheader img:nth-child(2)');
-let ima;
 const quizquestion = document.getElementById('quizquestion');
 let questionsArray = [];
 let score = 0;
@@ -22,8 +38,7 @@ function questionConstructor(
   c,
   d,
   correct,
-  fileExtension = 'svg'
-) {
+  fileExtension = 'svg') {
   this.question = question;
   this.country = country;
   this.src = `images/flag-images/${country}.${fileExtension}`;
