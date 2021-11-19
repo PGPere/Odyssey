@@ -17,7 +17,6 @@ if (userForm) {
 }
 
 const quiz = document.getElementById('quiz');
-// const userAsnwer = documet.querySelector('input');
 let btn = document.getElementById('submit');
 const labela = document.getElementById('atext');
 const labelb = document.getElementById('btext');
@@ -53,21 +52,48 @@ function QuestionConstructor(
 
 new QuestionConstructor(
   'What country does this flag represent?',
-  'phillipines',
+  'slovenia', //img src
   'Ukraine',
   'Tonga',
   'Slovenia',
   'Phillipines',
-  'd'
+  'c' //correct answer
 );
 new QuestionConstructor(
-  'test1',
-  'test2',
-  'test3',
-  'test4',
-  'test5',
-  'test6',
-  'test7'
+  'What country does this flag represent?',
+  'tonga', //img src
+  'Ukraine',
+  'Tonga',
+  'Slovenia',
+  'Phillipines',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'tuvalu', //img src
+  'Ukraine',
+  'Question3',
+  'Slovenia',
+  'Tuvalu',
+  'd' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'cameroon', //img src
+  'Ukraine',
+  'Cameroon',
+  'Slovenia',
+  'Tuvalu',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'ukraine', //img src
+  'Ukraine',
+  'Cameroon',
+  'Slovenia',
+  'Tuvalu',
+  'a' //correct answer
 );
 
 function renderQuiz() {
@@ -83,49 +109,22 @@ function renderQuiz() {
 
 renderQuiz();
 // Stores users answer
-function selectedAnswer() {
-  let answer = undefined;
-
-  answers.forEach((answersi) => {
-    if (answers.checked) {
-      answer = answersi.id;
-    }
-  });
-  return answer;
-}
-
-// Checks to see if user has selected an answer
-function allowSubmit() {
-  // if (document.getElementById('a').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('b').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('c').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('d').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else {
-  //   alert('Please select an answer');
-  // }
-}
 
 btn.addEventListener('click', () => {
-  if (currentQuestion < questionsArray.length) {
-    // allowSubmit();
-  }
-  const selectedElement = document.querySelector('input[name="answer"]:checked');
+  const selectedElement = document.querySelector(
+    'input[name="answer"]:checked'
+  );
   selectedElement.checked = false;
   if (selectedElement.value === questionsArray[currentQuestion].correct) {
     score++;
   }
 
+  if (currentQuestion === questionsArray.length - 1) {
+    alert("You're done!");
+    quiz.innerHTML = '';
+  }
   console.log(questionsArray[currentQuestion].correct);
   console.log(score);
   currentQuestion++;
   renderQuiz();
 });
-
