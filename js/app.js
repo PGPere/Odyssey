@@ -129,3 +129,8 @@ btn.addEventListener('click', () => {
   renderQuiz();
 });
 
+
+function TestsFunction() {
+  var T = document.getElementById("down");
+  T.style.display = "block";  
+}
