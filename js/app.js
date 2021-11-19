@@ -9,7 +9,10 @@ function handleSubmit(event) {
   let userNameInput = event.target.userName.value;
   userName = userNameInput;
   sessionStorage.setItem(keyName, userName);
-  window.open('quiz.html#quizheader', '_self');
+
+  console.log(userName);
+  window.open('quiz.html#quizheader', '_self'); 
+  //quiz.html#quiz
 }
 
 if (userForm) {
@@ -131,3 +134,28 @@ btn.addEventListener('click', () => {
   currentQuestion++;
   renderQuiz();
 });
+
+
+// Create Leaderscore Info
+
+let leaderInfo =[]
+
+let storeName = sessionStorage.getItem(keyName);
+
+console.log(storeName);
+
+let z = {name:storeName,
+        tally: score}
+
+leaderInfo.push(z);
+
+console.log(leaderInfo);
+
+// Local Storage of Leaderscore Information
+function storeLeaderscore() {
+  let stringifiedProducts = JSON.stringify(leaderInfo);
+  localStorage.setItem('linfo', stringifiedProducts);
+}
+
+storeLeaderscore();
+
