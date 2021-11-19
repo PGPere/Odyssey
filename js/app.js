@@ -9,6 +9,7 @@ function handleSubmit(event) {
   let userNameInput = event.target.userName.value;
   userName = userNameInput;
   sessionStorage.setItem(keyName, userName);
+
   console.log(userName);
   window.open('quiz.html#quizheader', '_self'); 
   //quiz.html#quiz
@@ -19,14 +20,14 @@ if (userForm) {
 }
 
 const quiz = document.getElementById('quiz');
-// const userAsnwer = documet.querySelector('input');
 let btn = document.getElementById('submit');
 const labela = document.getElementById('atext');
 const labelb = document.getElementById('btext');
 const labelc = document.getElementById('ctext');
 const labeld = document.getElementById('dtext');
 const answers = document.querySelectorAll('.answer');
-let flag = document.querySelector('#quizheader img:nth-child(2)');
+let flag = document.querySelector('.front-face');
+let backCard = document.querySelector('.back-face');
 const quizquestion = document.getElementById('quizquestion');
 let questionsArray = [];
 let score = 0;
@@ -45,6 +46,7 @@ function QuestionConstructor(
   this.question = question;
   this.country = country;
   this.src = `images/flag-images/${country}.${fileExtension}`;
+  this.back = `images/back-images/${country}.png`;
   this.a = a;
   this.b = b;
   this.c = c;
@@ -55,26 +57,54 @@ function QuestionConstructor(
 
 new QuestionConstructor(
   'What country does this flag represent?',
-  'phillipines',
+  'slovenia', //img src
   'Ukraine',
   'Tonga',
   'Slovenia',
   'Phillipines',
-  'd'
+  'c' //correct answer
 );
 new QuestionConstructor(
-  'test1',
-  'test2',
-  'test3',
-  'test4',
-  'test5',
-  'test6',
-  'test7'
+  'What country does this flag represent?',
+  'tonga', //img src
+  'Ukraine',
+  'Tonga',
+  'Slovenia',
+  'Phillipines',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'tuvalu', //img src
+  'Ukraine',
+  'Question3',
+  'Slovenia',
+  'Tuvalu',
+  'd' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'cameroon', //img src
+  'Ukraine',
+  'Cameroon',
+  'Slovenia',
+  'Tuvalu',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'ukraine', //img src
+  'Ukraine',
+  'Cameroon',
+  'Slovenia',
+  'Tuvalu',
+  'a' //correct answer
 );
 
 function renderQuiz() {
   let currentQuizQuestion = questionsArray[currentQuestion];
   flag.src = questionsArray[currentQuestion].src;
+  backCard.src = questionsArray[currentQuestion].back;
   console.log(flag);
   quizquestion.innerHTML = questionsArray[currentQuestion].question;
   labela.innerHTML = questionsArray[currentQuestion].a;
@@ -84,52 +114,27 @@ function renderQuiz() {
 }
 
 renderQuiz();
-// Stores users answer
-function selectedAnswer() {
-  let answer = undefined;
-
-  answers.forEach((answersi) => {
-    if (answers.checked) {
-      answer = answersi.id;
-    }
-  });
-  return answer;
-}
-
-// Checks to see if user has selected an answer
-function allowSubmit() {
-  // if (document.getElementById('a').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('b').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('c').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('d').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else {
-  //   alert('Please select an answer');
-  // }
-}
 
 btn.addEventListener('click', () => {
-  if (currentQuestion < questionsArray.length) {
-    // allowSubmit();
-  }
-  const selectedElement = document.querySelector('input[name="answer"]:checked');
+  const selectedElement = document.querySelector(
+    'input[name="answer"]:checked'
+  );
+  
   selectedElement.checked = false;
   if (selectedElement.value === questionsArray[currentQuestion].correct) {
     score++;
   }
 
+  if (currentQuestion === questionsArray.length - 1) {
+    alert("You're done!");
+    quiz.innerHTML = '';
+  }
   console.log(questionsArray[currentQuestion].correct);
   console.log(score);
   currentQuestion++;
   renderQuiz();
 });
+
 
 // Create Leaderscore Info
 
@@ -153,6 +158,4 @@ function storeLeaderscore() {
 }
 
 storeLeaderscore();
-
-
 
