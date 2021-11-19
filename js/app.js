@@ -54,21 +54,48 @@ function QuestionConstructor(
 
 new QuestionConstructor(
   'What country does this flag represent?',
-  'phillipines',
+  'slovenia', //img src
   'Ukraine',
   'Tonga',
   'Slovenia',
   'Phillipines',
-  'd'
+  'c' //correct answer
 );
 new QuestionConstructor(
-  'test1',
-  'test2',
-  'test3',
-  'test4',
-  'test5',
-  'test6',
-  'test7'
+  'What country does this flag represent?',
+  'tonga', //img src
+  'Ukraine',
+  'Tonga',
+  'Slovenia',
+  'Phillipines',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'tuvalu', //img src
+  'Ukraine',
+  'Question3',
+  'Slovenia',
+  'Tuvalu',
+  'd' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'cameroon', //img src
+  'Ukraine',
+  'Cameroon',
+  'Slovenia',
+  'Tuvalu',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'ukraine', //img src
+  'Ukraine',
+  'Cameroon',
+  'Slovenia',
+  'Tuvalu',
+  'a' //correct answer
 );
 
 function renderQuiz() {
@@ -86,15 +113,21 @@ function renderQuiz() {
 renderQuiz();
 
 btn.addEventListener('click', () => {
-  const selectedElement = document.querySelector('input[name="answer"]:checked');
+  const selectedElement = document.querySelector(
+    'input[name="answer"]:checked'
+  );
+  
   selectedElement.checked = false;
   if (selectedElement.value === questionsArray[currentQuestion].correct) {
     score++;
   }
 
+  if (currentQuestion === questionsArray.length - 1) {
+    alert("You're done!");
+    quiz.innerHTML = '';
+  }
   console.log(questionsArray[currentQuestion].correct);
   console.log(score);
   currentQuestion++;
   renderQuiz();
 });
-
