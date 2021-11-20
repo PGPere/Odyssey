@@ -57,94 +57,95 @@ function QuestionConstructor(
   questionsArray.push(this);
 }
 
+
 new QuestionConstructor(
   'What country does this flag represent?',
-  'slovenia', //img src
+  'bolivia', //img src
   'Ukraine',
   'Tonga',
-  'Slovenia',
-  'Phillipines',
+  'Bolivia',
+  'Denmark',
   'c' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'tonga', //img src
-  'Ukraine',
-  'Tonga',
-  'Slovenia',
+  'guinea', //img src
+  'Norway',
+  'Guinea',
+  'Sweden',
   'Phillipines',
   'b' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'tuvalu', //img src
-  'Ukraine',
-  'Question3',
+  'jordan', //img src
+  'Iraq',
+  'Afghanistan',
   'Slovenia',
-  'Tuvalu',
+  'Jordan',
   'd' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'cameroon', //img src
-  'Ukraine',
-  'Cameroon',
-  'Slovenia',
-  'Tuvalu',
+  'kyrgyzstan', //img src
+  'Russia',
+  'Kyrgyzstan',
+  'Ireland',
+  'Sudan',
   'b' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'ukraine', //img src
-  'Ukraine',
+  'laos', //img src
+  'Laos',
   'Cameroon',
-  'Slovenia',
-  'Tuvalu',
+  'China',
+  'Japan',
   'a' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'slovenia', //img src
-  'Ukraine',
-  'Tonga',
-  'Slovenia',
-  'Phillipines',
+  'morocco', //img src
+  'Chile',
+  'Australia',
+  'Morocco',
+  'Germany',
   'c' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'tonga', //img src
-  'Ukraine',
-  'Tonga',
-  'Slovenia',
-  'Phillipines',
+  'mozambique', //img src
+  'Brazil',
+  'Mozambique',
+  'Austria',
+  'Argentina',
   'b' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'tuvalu', //img src
-  'Ukraine',
-  'Question3',
-  'Slovenia',
-  'Tuvalu',
+  'north-macedonia', //img src
+  'Algeria',
+  'Czech Republic',
+  'Cuba',
+  'North Macedonia',
   'd' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'cameroon', //img src
-  'Ukraine',
-  'Cameroon',
-  'Slovenia',
-  'Tuvalu',
+  'suriname', //img src
+  'Greece',
+  'Suriname',
+  'Albania',
+  'Bulgaria',
   'b' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
   'ukraine', //img src
   'Ukraine',
-  'Cameroon',
-  'Slovenia',
-  'Tuvalu',
+  'Bahrain',
+  'Poland',
+  'Croatia',
   'a' //correct answer
 );
 
@@ -160,7 +161,7 @@ function renderQuiz() {
   labeld.innerHTML = questionsArray[currentQuestion].d;
 }
 
-renderQuiz();
+// renderQuiz();
 
 btn.addEventListener('click', () => {
   const selectedElement = document.querySelector(
@@ -186,7 +187,7 @@ btn.addEventListener('click', () => {
     results.appendChild(div);
     let h1 = document.createElement('h1');
     h1.classList.add('h1results');
-    h1.textContent = 'Quiz Results';
+    h1.textContent = 'Results';
     div.appendChild(h1);
     let divresults = document.createElement('div');
     divresults.classList.add('resultslist');
@@ -196,21 +197,12 @@ btn.addEventListener('click', () => {
     let ol2 = document.createElement('ol');
     ol2.classList.add('correctli');
     divresults.appendChild(ol2);
-    // TODO: Need to show user what answers they answered correctly/incorrectly
-    for(let i = 0; i < correctAnswers.length; i++) {
-      let li = document.createElement('li');
-      li.classList.add('resultsli');
-      if(correctAnswers[i] === 1) {
-        li.textContent = `Correct`;
-        ol.appendChild(li);
-      } else {
-        li.textContent = `Incorrect`;
-        ol.appendChild(li);
-      }
-    }
-    for(let j = 0; j < questionsArray.length; j++) {
+    for(let j = 0; j < correctAnswers.length; j++) {
+      
       let li2 = document.createElement('li');
       let p2 = document.createElement('p');
+      let p3 = document.createElement('p');
+      p3.classList.add('check');
       p2.textContent = questionsArray[j].country;
       let img = document.createElement('img');
       img.classList.add('liimg');
@@ -218,6 +210,13 @@ btn.addEventListener('click', () => {
       ol2.appendChild(li2);
       li2.appendChild(p2);
       li2.appendChild(img);
+      li2.appendChild(p3);
+      if(correctAnswers[j] === 1) {
+        p3.innerHTML = '<i class="fas fa-check"></i>';
+      } else {
+        p3.innerHTML = '<i class="fas fa-times"></i>';
+
+      }
 
     }
     // Displays the amount of questions the user answered correctly
@@ -284,4 +283,4 @@ function storeLeaderscore() {
 }
 
 storeLeaderscore();
-
+renderQuiz();
