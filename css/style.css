@@ -4,15 +4,20 @@ body {
     rgb(190, 190, 190) 0%,
     rgb(241, 241, 241) 90%
   );
+  min-height: 100vh;
 }
 
+.image-one{
+  height:300px;
+  margin-bottom: 60px;
+  margin-top:20px;
+}
 
 nav {
   min-width: 100vw;
   height: 75px;
   display: inline-flex;
   justify-content: space-between;
-  /* background-color: rgb(71, 71, 71); */
   align-items: center;
 }
 
@@ -40,58 +45,73 @@ nav ul a {
 
 
 #arrowicon{
-  background-color: #eee;
-  color: #444;
+
+  color: rgb(188, 188, 114);
   cursor: pointer;
-  padding: 18px;
+  margin-bottom: 15px;
+  margin-top: 0px;
   width: 100%;
   border: none;
   text-align: center;
   outline: none;
-  font-size: 15px;
   display: flex;
   justify-content: center;
-
 }
 
+li{
+  font-size: 18px;
+  color:rgb(42, 50, 50);
+}
+
+header{
+  align-items: center;
+  display: flex;
+}
 
 div a p {
   height: 50px;
   align-items: center;
   display: flex;
   margin-top: 200px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
 }
 
 div a p span{
-  height: 80px;
   font-size: 7em;
-  color:rgb(158, 181, 181);
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   display: flex;
   align-items: right;
   text-align: center;
+  color:rgb(123, 123, 71);
 }
 
 
 #odysseyButton{
 
-  display: inline-flex;
+  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: bottom;
   min-width: 100%;
-  height: 400px;
   background-size: cover;
-
+  margin-top:35px;
+  margin-bottom: 20px;
 }
 
 
-.myBtn{
+#myBtn{
   display: flex;
   justify-content: right;
   align-items: center;
-  margin-left: 750px;
+  font-size:22px;
+  margin-bottom: 0;
+  margin-top:0;
+  width: 120px;
+  height:60px;
+  color:black;
+  border-radius: 5%;
+  border-color: rgb(188, 188, 114);
+  text-align: center;
 }
 
 a {
@@ -99,18 +119,29 @@ a {
 }
 
 #text {
-  min-width: 100vw;
+  /* min-width: 100vw; */
+  width: 100%;
   min-height: 23vh;
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: center;
+}
+
+#artsyfont{
+  text-align: center;
+  line-height: 2.5rem;
+  margin-bottom: 20px;
+  color:black;
+  font-family: 'Russo One', sans-serif;
 }
 
 p {
   margin: 0 5rem;
-  font-family: 'Noto Sans', sans-serif;
-  line-height: 1.5rem;
+  line-height: 3rem;
   font-size: 20px;
+  font-family: 'Russo One', sans-serif;
+  color:rgb(42, 50, 50);
 }
 
 #image {
@@ -147,6 +178,7 @@ div img {
   width: 70vw;
   justify-content: space-between;
   margin: auto;
+
 }
 
 .p-text {
@@ -192,7 +224,7 @@ div img {
     /* display: block; */
     margin: 0 auto;
     width: 10px;
-    height: 38px;
+    height: 30px;
 }
 .arrow-down:after {
     content: '';
@@ -462,7 +494,7 @@ div img {
   vertical-align:middle;
   width:40px;
   text-align:center;
-  border-radius: 5%;
+  border-radius: 95%;
   bottom:20px;
   right:20px;
   
@@ -471,4 +503,19 @@ div img {
     transition:all .1s ease;
     color:#f0f0f0;
   }
+}
+
+
+legend{
+  font-family: 'Russo One', sans-serif;
+}
+
+label{
+  font-family: 'Russo One', sans-serif;
+}
+#start-button{
+  font-family: 'Russo One', sans-serif;
+  font-size: 15px;
+  border-radius: 10%;
+  border-color:rgb(188, 188, 114);
 }

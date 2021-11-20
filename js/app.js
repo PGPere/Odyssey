@@ -4,6 +4,7 @@ const userForm = document.querySelector('form');
 let userName = '';
 const keyName = 'currentUser';
 
+
 function handleSubmit(event) {
   event.preventDefault();
   let userNameInput = event.target.userName.value;
@@ -24,7 +25,9 @@ const labelb = document.getElementById('btext');
 const labelc = document.getElementById('ctext');
 const labeld = document.getElementById('dtext');
 const answers = document.querySelectorAll('.answer');
+console.log(answers);
 let flag = document.querySelector('#quizheader img:nth-child(2)');
+console.log(flag);
 const quizquestion = document.getElementById('quizquestion');
 let questionsArray = [];
 let score = 0;
@@ -51,7 +54,7 @@ function QuestionConstructor(
   questionsArray.push(this);
 }
 
-new QuestionConstructor(
+let testQuestion = new QuestionConstructor(
   'What country does this flag represent?',
   'phillipines',
   'Ukraine',
@@ -60,6 +63,8 @@ new QuestionConstructor(
   'Phillipines',
   'd'
 );
+
+
 new QuestionConstructor(
   'test1',
   'test2',
@@ -72,8 +77,8 @@ new QuestionConstructor(
 
 function renderQuiz() {
   let currentQuizQuestion = questionsArray[currentQuestion];
-  flag.src = questionsArray[currentQuestion].src;
   console.log(flag);
+  flag.src = questionsArray[currentQuestion].src;
   quizquestion.innerHTML = questionsArray[currentQuestion].question;
   labela.innerHTML = questionsArray[currentQuestion].a;
   labelb.innerHTML = questionsArray[currentQuestion].b;
@@ -81,7 +86,6 @@ function renderQuiz() {
   labeld.innerHTML = questionsArray[currentQuestion].d;
 }
 
-renderQuiz();
 // Stores users answer
 function selectedAnswer() {
   let answer = undefined;
@@ -113,6 +117,28 @@ function allowSubmit() {
   // }
 }
 
+
+
+
+
+function TestsFunction() {
+  var T = document.getElementById("down");
+  T.style.display = "block";  
+
+};
+
+const arrowIcon= document.getElementById('arrowicon');
+
+
+function arrowRemover(){
+  arrowIcon.innerHTML = ' ';
+}
+
+arrowIcon.addEventListener('click',arrowRemover);
+
+
+renderQuiz();
+
 btn.addEventListener('click', () => {
   if (currentQuestion < questionsArray.length) {
     // allowSubmit();
@@ -129,8 +155,3 @@ btn.addEventListener('click', () => {
   renderQuiz();
 });
 
-
-function TestsFunction() {
-  var T = document.getElementById("down");
-  T.style.display = "block";  
-}
