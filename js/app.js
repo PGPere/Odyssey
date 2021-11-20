@@ -2,36 +2,39 @@
 
 const userForm = document.querySelector('form');
 let userName = '';
-const keyName = 'currentUser';
+const userKeyName = 'currentUser';
 
 
 function handleSubmit(event) {
   event.preventDefault();
   let userNameInput = event.target.userName.value;
   userName = userNameInput;
-  sessionStorage.setItem(keyName, userName);
-  window.open('quiz.html#quizheader', '_self'); //quiz.html#quiz
+  sessionStorage.setItem(userKeyName, userName);
+
+  console.log(userName);
+  window.open('quiz.html#quizheader', '_self');
+  //quiz.html#quiz
 }
 
 if (userForm) {
   userForm.addEventListener('submit', handleSubmit);
 }
-
+const remove = document.querySelector('.quizcontainer');
+const results = document.querySelector('.uqc'); 
 const quiz = document.getElementById('quiz');
-// const userAsnwer = documet.querySelector('input');
 let btn = document.getElementById('submit');
 const labela = document.getElementById('atext');
 const labelb = document.getElementById('btext');
 const labelc = document.getElementById('ctext');
 const labeld = document.getElementById('dtext');
-const answers = document.querySelectorAll('.answer');
-console.log(answers);
-let flag = document.querySelector('#quizheader img:nth-child(2)');
-console.log(flag);
+let flag = document.querySelector('.front-face');
+let backCard = document.querySelector('.back-face');
+
 const quizquestion = document.getElementById('quizquestion');
 let questionsArray = [];
 let score = 0;
 let currentQuestion = 0;
+let correctAnswers = [];
 
 function QuestionConstructor(
   question,
@@ -46,6 +49,7 @@ function QuestionConstructor(
   this.question = question;
   this.country = country;
   this.src = `images/flag-images/${country}.${fileExtension}`;
+  this.back = `images/back-images/${country}.png`;
   this.a = a;
   this.b = b;
   this.c = c;
@@ -54,71 +58,111 @@ function QuestionConstructor(
   questionsArray.push(this);
 }
 
-let testQuestion = new QuestionConstructor(
+
+new QuestionConstructor(
+
   'What country does this flag represent?',
-  'phillipines',
+  'bolivia', //img src
   'Ukraine',
   'Tonga',
-  'Slovenia',
+  'Bolivia',
+  'Denmark',
+  'c' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'guinea', //img src
+  'Norway',
+  'Guinea',
+  'Sweden',
   'Phillipines',
-  'd'
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'jordan', //img src
+  'Iraq',
+  'Afghanistan',
+  'Slovenia',
+  'Jordan',
+  'd' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'kyrgyzstan', //img src
+  'Russia',
+  'Kyrgyzstan',
+  'Ireland',
+  'Sudan',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'laos', //img src
+  'Laos',
+  'Cameroon',
+  'China',
+  'Japan',
+  'a' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'morocco', //img src
+  'Chile',
+  'Australia',
+  'Morocco',
+  'Germany',
+  'c' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'mozambique', //img src
+  'Brazil',
+  'Mozambique',
+  'Austria',
+  'Argentina',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'north-macedonia', //img src
+  'Algeria',
+  'Czech Republic',
+  'Cuba',
+  'North Macedonia',
+  'd' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'suriname', //img src
+  'Greece',
+  'Suriname',
+  'Albania',
+  'Bulgaria',
+  'b' //correct answer
 );
 
 
 new QuestionConstructor(
-  'test1',
-  'test2',
-  'test3',
-  'test4',
-  'test5',
-  'test6',
-  'test7'
+  'What country does this flag represent?',
+  'ukraine', //img src
+  'Ukraine',
+  'Bahrain',
+  'Poland',
+  'Croatia',
+  'a' //correct answer
 );
 
 function renderQuiz() {
-  let currentQuizQuestion = questionsArray[currentQuestion];
-  console.log(flag);
+
   flag.src = questionsArray[currentQuestion].src;
+  backCard.src = questionsArray[currentQuestion].back;
   quizquestion.innerHTML = questionsArray[currentQuestion].question;
   labela.innerHTML = questionsArray[currentQuestion].a;
   labelb.innerHTML = questionsArray[currentQuestion].b;
   labelc.innerHTML = questionsArray[currentQuestion].c;
   labeld.innerHTML = questionsArray[currentQuestion].d;
 }
-
-// Stores users answer
-function selectedAnswer() {
-  let answer = undefined;
-
-  answers.forEach((answersi) => {
-    if (answers.checked) {
-      answer = answersi.id;
-    }
-  });
-  return answer;
-}
-
-// Checks to see if user has selected an answer
-function allowSubmit() {
-  // if (document.getElementById('a').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('b').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('c').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else if (document.getElementById('d').checked) {
-    // currentQuestion++;
-    // renderQuiz();
-  // } else {
-  //   alert('Please select an answer');
-  // }
-}
-
-
-
 
 
 function TestsFunction() {
@@ -140,18 +184,123 @@ arrowIcon.addEventListener('click',arrowRemover);
 renderQuiz();
 
 btn.addEventListener('click', () => {
-  if (currentQuestion < questionsArray.length) {
-    // allowSubmit();
-  }
-  const selectedElement = document.querySelector('input[name="answer"]:checked');
+  const selectedElement = document.querySelector(
+    'input[name="answer"]:checked'
+  );
+
+  
   selectedElement.checked = false;
   if (selectedElement.value === questionsArray[currentQuestion].correct) {
     score++;
+    // Allows us to check the correct/incorrect answers
+    correctAnswers.push(1);
+  } else {
+    correctAnswers.push(0);
   }
+  if (currentQuestion === questionsArray.length - 1) {
+    //Removes the quiz and then appends the results page to the DOM
+    quiz.innerHTML = '';
+    // Removes the quizcontainer to allow for quizresults to be appended to .uqc for easier styling
+    remove.remove();
+    let div = document.createElement('div');
+    div.classList.add('quizresults');
+    results.appendChild(div);
+    let h1 = document.createElement('h1');
+    h1.classList.add('h1results');
+    h1.textContent = 'Results';
+    div.appendChild(h1);
+    let divresults = document.createElement('div');
+    divresults.classList.add('resultslist');
+    div.appendChild(divresults);
+    let ol = document.createElement('ol');
+    divresults.appendChild(ol);
+    let ol2 = document.createElement('ol');
+    ol2.classList.add('correctli');
+    divresults.appendChild(ol2);
+    for(let j = 0; j < correctAnswers.length; j++) {
+      
+      let li2 = document.createElement('li');
+      let p2 = document.createElement('p');
+      let p3 = document.createElement('p');
+      p3.classList.add('check');
+      p2.textContent = questionsArray[j].country;
+      let img = document.createElement('img');
+      img.classList.add('liimg');
+      img.src = questionsArray[j].src;
+      ol2.appendChild(li2);
+      li2.appendChild(p2);
+      li2.appendChild(img);
+      li2.appendChild(p3);
+      if(correctAnswers[j] === 1) {
+        p3.innerHTML = '<i class="fas fa-check"></i>';
+      } else {
+        p3.innerHTML = '<i class="fas fa-times"></i>';
+
+      }
+
+    }
+    // Displays the amount of questions the user answered correctly
+    let p = document.createElement('p');
+    p.classList.add('resultsmessage');
+    p.textContent = `You answered ${score} out of ${questionsArray.length} questions correctly.`;
+    div.appendChild(p);
+    // Creates/appends buttons to .quizresults
+    let buttondiv = document.createElement('div');
+    buttondiv.classList.add('buttons');
+    div.appendChild(buttondiv);
+    let button = document.createElement('button');
+    button.classList.add('retake');
+    button.textContent = 'Retake Quiz';
+    buttondiv.appendChild(button);
+    let button2 = document.createElement('button');
+    button2.classList.add('leaderboard');
+    button2.textContent = 'Leaderboard';
+    buttondiv.appendChild(button2);
+    // Allows user to retake the quiz
+    const refresh = document.querySelector('.retake');
+    refresh.addEventListener('click', () => {
+      location.reload();
+    })
+    // Takes user to leaderboard.html
+    const leaderboard = document.querySelector('.leaderboard');
+    leaderboard.addEventListener('click', ()=> {
+      location.href = "leaderboard.html"
+    })
+  }
+ 
 
   console.log(questionsArray[currentQuestion].correct);
   console.log(score);
+  console.log(correctAnswers);
   currentQuestion++;
   renderQuiz();
 });
 
+
+
+
+// Create Leaderscore Info
+
+let leaderInfo = [];
+
+let storeName = sessionStorage.getItem(userKeyName);
+
+console.log(storeName);
+
+let z = {
+  name: storeName,
+  tally: score
+};
+
+leaderInfo.push(z);
+
+console.log(leaderInfo);
+
+// Local Storage of Leaderscore Information
+function storeLeaderscore() {
+  let stringifiedProducts = JSON.stringify(leaderInfo);
+  localStorage.setItem('linfo', stringifiedProducts);
+}
+
+storeLeaderscore();
+renderQuiz();

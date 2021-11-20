@@ -165,7 +165,7 @@ h2 {
 
 img {
   width: 600px;
-  height: 500px;
+  height: 400px;
 }
 
 div img {
@@ -199,6 +199,7 @@ div img {
   justify-content: space-between;
   margin: 2rem auto;
 }
+
 
 
 #wrapper {
@@ -519,3 +520,13 @@ label{
   border-radius: 10%;
   border-color:rgb(188, 188, 114);
 }
+
+.oltwo {
+  display: inline-block;
+}
+
+.oltwo li {
+  display: inline-block;
+}
+
+
