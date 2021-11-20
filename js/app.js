@@ -2,16 +2,16 @@
 
 const userForm = document.querySelector('form');
 let userName = '';
-const keyName = 'currentUser';
+const userKeyName = 'currentUser';
 
 function handleSubmit(event) {
   event.preventDefault();
   let userNameInput = event.target.userName.value;
   userName = userNameInput;
-  sessionStorage.setItem(keyName, userName);
+  sessionStorage.setItem(userKeyName, userName);
 
   console.log(userName);
-  window.open('quiz.html#quizheader', '_self'); 
+  window.open('quiz.html#quizheader', '_self');
   //quiz.html#quiz
 }
 
@@ -25,7 +25,6 @@ const labela = document.getElementById('atext');
 const labelb = document.getElementById('btext');
 const labelc = document.getElementById('ctext');
 const labeld = document.getElementById('dtext');
-const answers = document.querySelectorAll('.answer');
 let flag = document.querySelector('.front-face');
 let backCard = document.querySelector('.back-face');
 const quizquestion = document.getElementById('quizquestion');
@@ -57,7 +56,7 @@ function QuestionConstructor(
 
 new QuestionConstructor(
   'What country does this flag represent?',
-  'slovenia', //img src
+  'bolivia', //img src
   'Ukraine',
   'Tonga',
   'Slovenia',
@@ -66,7 +65,7 @@ new QuestionConstructor(
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'tonga', //img src
+  'guinea', //img src
   'Ukraine',
   'Tonga',
   'Slovenia',
@@ -75,7 +74,7 @@ new QuestionConstructor(
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'tuvalu', //img src
+  'jordan', //img src
   'Ukraine',
   'Question3',
   'Slovenia',
@@ -84,7 +83,7 @@ new QuestionConstructor(
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'cameroon', //img src
+  'kyrgyzstan', //img src
   'Ukraine',
   'Cameroon',
   'Slovenia',
@@ -102,10 +101,8 @@ new QuestionConstructor(
 );
 
 function renderQuiz() {
-  let currentQuizQuestion = questionsArray[currentQuestion];
   flag.src = questionsArray[currentQuestion].src;
   backCard.src = questionsArray[currentQuestion].back;
-  console.log(flag);
   quizquestion.innerHTML = questionsArray[currentQuestion].question;
   labela.innerHTML = questionsArray[currentQuestion].a;
   labelb.innerHTML = questionsArray[currentQuestion].b;
@@ -119,7 +116,7 @@ btn.addEventListener('click', () => {
   const selectedElement = document.querySelector(
     'input[name="answer"]:checked'
   );
-  
+
   selectedElement.checked = false;
   if (selectedElement.value === questionsArray[currentQuestion].correct) {
     score++;
@@ -138,14 +135,16 @@ btn.addEventListener('click', () => {
 
 // Create Leaderscore Info
 
-let leaderInfo =[]
+let leaderInfo = [];
 
-let storeName = sessionStorage.getItem(keyName);
+let storeName = sessionStorage.getItem(userKeyName);
 
 console.log(storeName);
 
-let z = {name:storeName,
-        tally: score}
+let z = {
+  name: storeName,
+  tally: score
+};
 
 leaderInfo.push(z);
 
