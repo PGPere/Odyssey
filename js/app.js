@@ -4,6 +4,7 @@ const userForm = document.querySelector('form');
 let userName = '';
 const userKeyName = 'currentUser';
 
+
 function handleSubmit(event) {
   event.preventDefault();
   let userNameInput = event.target.userName.value;
@@ -28,6 +29,7 @@ const labelc = document.getElementById('ctext');
 const labeld = document.getElementById('dtext');
 let flag = document.querySelector('.front-face');
 let backCard = document.querySelector('.back-face');
+
 const quizquestion = document.getElementById('quizquestion');
 let questionsArray = [];
 let score = 0;
@@ -58,6 +60,7 @@ function QuestionConstructor(
 
 
 new QuestionConstructor(
+
   'What country does this flag represent?',
   'bolivia', //img src
   'Ukraine',
@@ -138,6 +141,8 @@ new QuestionConstructor(
   'Bulgaria',
   'b' //correct answer
 );
+
+
 new QuestionConstructor(
   'What country does this flag represent?',
   'ukraine', //img src
@@ -149,6 +154,7 @@ new QuestionConstructor(
 );
 
 function renderQuiz() {
+
   flag.src = questionsArray[currentQuestion].src;
   backCard.src = questionsArray[currentQuestion].back;
   quizquestion.innerHTML = questionsArray[currentQuestion].question;
@@ -158,7 +164,24 @@ function renderQuiz() {
   labeld.innerHTML = questionsArray[currentQuestion].d;
 }
 
-// renderQuiz();
+
+function TestsFunction() {
+  var T = document.getElementById("down");
+  T.style.display = "block";  
+
+};
+
+const arrowIcon= document.getElementById('arrowicon');
+
+
+function arrowRemover(){
+  arrowIcon.innerHTML = ' ';
+}
+
+arrowIcon.addEventListener('click',arrowRemover);
+
+
+renderQuiz();
 
 btn.addEventListener('click', () => {
   const selectedElement = document.querySelector(
