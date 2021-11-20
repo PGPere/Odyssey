@@ -113,3 +113,12 @@ div img {
   justify-content: space-between;
   margin: 2rem auto;
 }
+
+.oltwo {
+  display: inline-block;
+}
+
+.oltwo li {
+  display: inline-block;
+}
+
