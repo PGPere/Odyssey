@@ -2,15 +2,16 @@
 
 const userForm = document.querySelector('form');
 let userName = '';
-const userKeyName = 'currentUser';
+const keyName = 'currentUser';
+const tally = 'puntos';
 
+// const userKeyName = 'currentUser';
 
 function handleSubmit(event) {
   event.preventDefault();
   let userNameInput = event.target.userName.value;
   userName = userNameInput;
-  sessionStorage.setItem(userKeyName, userName);
-
+  localStorage.setItem(keyName, userName);
   console.log(userName);
   window.open('quiz.html#quizheader', '_self');
   //quiz.html#quiz
@@ -78,6 +79,7 @@ new QuestionConstructor(
   'Phillipines',
   'b' //correct answer
 );
+
 new QuestionConstructor(
   'What country does this flag represent?',
   'jordan', //img src
@@ -154,7 +156,6 @@ new QuestionConstructor(
 );
 
 function renderQuiz() {
-
   flag.src = questionsArray[currentQuestion].src;
   backCard.src = questionsArray[currentQuestion].back;
   quizquestion.innerHTML = questionsArray[currentQuestion].question;
@@ -197,6 +198,9 @@ btn.addEventListener('click', () => {
   } else {
     correctAnswers.push(0);
   }
+  
+  localStorage.setItem(tally, score);
+
   if (currentQuestion === questionsArray.length - 1) {
     //Removes the quiz and then appends the results page to the DOM
     quiz.innerHTML = '';
@@ -266,41 +270,15 @@ btn.addEventListener('click', () => {
     leaderboard.addEventListener('click', ()=> {
       location.href = "leaderboard.html"
     })
+    // storeLeaderscore();
+    // sessionStorage.clear();
   }
  
-
   console.log(questionsArray[currentQuestion].correct);
   console.log(score);
+  console.log (sessionStorage.getItem(keyName));
   console.log(correctAnswers);
   currentQuestion++;
   renderQuiz();
+  
 });
-
-
-
-
-// Create Leaderscore Info
-
-let leaderInfo = [];
-
-let storeName = sessionStorage.getItem(userKeyName);
-
-console.log(storeName);
-
-let z = {
-  name: storeName,
-  tally: score
-};
-
-leaderInfo.push(z);
-
-console.log(leaderInfo);
-
-// Local Storage of Leaderscore Information
-function storeLeaderscore() {
-  let stringifiedProducts = JSON.stringify(leaderInfo);
-  localStorage.setItem('linfo', stringifiedProducts);
-}
-
-storeLeaderscore();
-renderQuiz();
