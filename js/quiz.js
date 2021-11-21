@@ -1,5 +1,5 @@
 'use strict';
 // const keyName = 'currentUser';
-let userName = sessionStorage.getItem(keyName);
+let userName = localStorage.getItem(keyName);
 
 console.log(userName);

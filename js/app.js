@@ -3,13 +3,13 @@
 const userForm = document.querySelector('form');
 let userName = '';
 const keyName = 'currentUser';
+const tally = 'puntos';
 
 function handleSubmit(event) {
   event.preventDefault();
   let userNameInput = event.target.userName.value;
   userName = userNameInput;
-  sessionStorage.setItem(keyName, userName);
-
+  localStorage.setItem(keyName, userName);
   console.log(userName);
   window.open('quiz.html#quizheader', '_self'); 
   //quiz.html#quiz
@@ -75,78 +75,78 @@ new QuestionConstructor(
   'Phillipines',
   'b' //correct answer
 );
-new QuestionConstructor(
-  'What country does this flag represent?',
-  'tuvalu', //img src
-  'Ukraine',
-  'Question3',
-  'Slovenia',
-  'Tuvalu',
-  'd' //correct answer
-);
-new QuestionConstructor(
-  'What country does this flag represent?',
-  'cameroon', //img src
-  'Ukraine',
-  'Cameroon',
-  'Slovenia',
-  'Tuvalu',
-  'b' //correct answer
-);
-new QuestionConstructor(
-  'What country does this flag represent?',
-  'ukraine', //img src
-  'Ukraine',
-  'Cameroon',
-  'Slovenia',
-  'Tuvalu',
-  'a' //correct answer
-);
-new QuestionConstructor(
-  'What country does this flag represent?',
-  'slovenia', //img src
-  'Ukraine',
-  'Tonga',
-  'Slovenia',
-  'Phillipines',
-  'c' //correct answer
-);
-new QuestionConstructor(
-  'What country does this flag represent?',
-  'tonga', //img src
-  'Ukraine',
-  'Tonga',
-  'Slovenia',
-  'Phillipines',
-  'b' //correct answer
-);
-new QuestionConstructor(
-  'What country does this flag represent?',
-  'tuvalu', //img src
-  'Ukraine',
-  'Question3',
-  'Slovenia',
-  'Tuvalu',
-  'd' //correct answer
-);
-new QuestionConstructor(
-  'What country does this flag represent?',
-  'cameroon', //img src
-  'Ukraine',
-  'Cameroon',
-  'Slovenia',
-  'Tuvalu',
-  'b' //correct answer
-);
-new QuestionConstructor(
-  'What country does this flag represent?',
-  'ukraine', //img src
-  'Ukraine',
-  'Cameroon',
-  'Slovenia',
-  'Tuvalu',
-  'a' //correct answer
-);
+// new QuestionConstructor(
+//   'What country does this flag represent?',
+//   'tuvalu', //img src
+//   'Ukraine',
+//   'Question3',
+//   'Slovenia',
+//   'Tuvalu',
+//   'd' //correct answer
+// );
+// new QuestionConstructor(
+//   'What country does this flag represent?',
+//   'cameroon', //img src
+//   'Ukraine',
+//   'Cameroon',
+//   'Slovenia',
+//   'Tuvalu',
+//   'b' //correct answer
+// );
+// new QuestionConstructor(
+//   'What country does this flag represent?',
+//   'ukraine', //img src
+//   'Ukraine',
+//   'Cameroon',
+//   'Slovenia',
+//   'Tuvalu',
+//   'a' //correct answer
+// );
+// new QuestionConstructor(
+//   'What country does this flag represent?',
+//   'slovenia', //img src
+//   'Ukraine',
+//   'Tonga',
+//   'Slovenia',
+//   'Phillipines',
+//   'c' //correct answer
+// );
+// new QuestionConstructor(
+//   'What country does this flag represent?',
+//   'tonga', //img src
+//   'Ukraine',
+//   'Tonga',
+//   'Slovenia',
+//   'Phillipines',
+//   'b' //correct answer
+// );
+// new QuestionConstructor(
+//   'What country does this flag represent?',
+//   'tuvalu', //img src
+//   'Ukraine',
+//   'Question3',
+//   'Slovenia',
+//   'Tuvalu',
+//   'd' //correct answer
+// );
+// new QuestionConstructor(
+//   'What country does this flag represent?',
+//   'cameroon', //img src
+//   'Ukraine',
+//   'Cameroon',
+//   'Slovenia',
+//   'Tuvalu',
+//   'b' //correct answer
+// );
+// new QuestionConstructor(
+//   'What country does this flag represent?',
+//   'ukraine', //img src
+//   'Ukraine',
+//   'Cameroon',
+//   'Slovenia',
+//   'Tuvalu',
+//   'a' //correct answer
+// );
 
 function renderQuiz() {
   let currentQuizQuestion = questionsArray[currentQuestion];
@@ -176,6 +176,9 @@ btn.addEventListener('click', () => {
   } else {
     correctAnswers.push(0);
   }
+  
+  localStorage.setItem(tally, score);
+
   if (currentQuestion === questionsArray.length - 1) {
     //Removes the quiz and then appends the results page to the DOM
     quiz.innerHTML = '';
@@ -247,41 +250,19 @@ btn.addEventListener('click', () => {
     leaderboard.addEventListener('click', ()=> {
       location.href = "leaderboard.html"
     })
+    // storeLeaderscore();
+    // sessionStorage.clear();
   }
  
-
   console.log(questionsArray[currentQuestion].correct);
   console.log(score);
+  console.log (sessionStorage.getItem(keyName));
   console.log(correctAnswers);
   currentQuestion++;
   renderQuiz();
+  
 });
 
 
 
-
-
-
-// Create Leaderscore Info
-
-let leaderInfo =[]
-
-let storeName = sessionStorage.getItem(keyName);
-
-console.log(storeName);
-
-let z = {name:storeName,
-        tally: score}
-
-leaderInfo.push(z);
-
-console.log(leaderInfo);
-
-// Local Storage of Leaderscore Information
-function storeLeaderscore() {
-  let stringifiedProducts = JSON.stringify(leaderInfo);
-  localStorage.setItem('linfo', stringifiedProducts);
-}
-
-storeLeaderscore();
 
