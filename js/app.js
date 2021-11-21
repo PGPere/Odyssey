@@ -5,13 +5,15 @@ let userName = '';
 const keyName = 'currentUser';
 const tally = 'puntos';
 
+// const userKeyName = 'currentUser';
+
 function handleSubmit(event) {
   event.preventDefault();
   let userNameInput = event.target.userName.value;
   userName = userNameInput;
   localStorage.setItem(keyName, userName);
   console.log(userName);
-  window.open('quiz.html#quizheader', '_self'); 
+  window.open('quiz.html#quizheader', '_self');
   //quiz.html#quiz
 }
 
@@ -26,9 +28,9 @@ const labela = document.getElementById('atext');
 const labelb = document.getElementById('btext');
 const labelc = document.getElementById('ctext');
 const labeld = document.getElementById('dtext');
-const answers = document.querySelectorAll('.answer');
 let flag = document.querySelector('.front-face');
 let backCard = document.querySelector('.back-face');
+
 const quizquestion = document.getElementById('quizquestion');
 let questionsArray = [];
 let score = 0;
@@ -57,102 +59,105 @@ function QuestionConstructor(
   questionsArray.push(this);
 }
 
+
 new QuestionConstructor(
+
   'What country does this flag represent?',
-  'slovenia', //img src
+  'bolivia', //img src
   'Ukraine',
   'Tonga',
-  'Slovenia',
-  'Phillipines',
+  'Bolivia',
+  'Denmark',
   'c' //correct answer
 );
 new QuestionConstructor(
   'What country does this flag represent?',
-  'tonga', //img src
-  'Ukraine',
-  'Tonga',
-  'Slovenia',
+  'guinea', //img src
+  'Norway',
+  'Guinea',
+  'Sweden',
   'Phillipines',
   'b' //correct answer
 );
-// new QuestionConstructor(
-//   'What country does this flag represent?',
-//   'tuvalu', //img src
-//   'Ukraine',
-//   'Question3',
-//   'Slovenia',
-//   'Tuvalu',
-//   'd' //correct answer
-// );
-// new QuestionConstructor(
-//   'What country does this flag represent?',
-//   'cameroon', //img src
-//   'Ukraine',
-//   'Cameroon',
-//   'Slovenia',
-//   'Tuvalu',
-//   'b' //correct answer
-// );
-// new QuestionConstructor(
-//   'What country does this flag represent?',
-//   'ukraine', //img src
-//   'Ukraine',
-//   'Cameroon',
-//   'Slovenia',
-//   'Tuvalu',
-//   'a' //correct answer
-// );
-// new QuestionConstructor(
-//   'What country does this flag represent?',
-//   'slovenia', //img src
-//   'Ukraine',
-//   'Tonga',
-//   'Slovenia',
-//   'Phillipines',
-//   'c' //correct answer
-// );
-// new QuestionConstructor(
-//   'What country does this flag represent?',
-//   'tonga', //img src
-//   'Ukraine',
-//   'Tonga',
-//   'Slovenia',
-//   'Phillipines',
-//   'b' //correct answer
-// );
-// new QuestionConstructor(
-//   'What country does this flag represent?',
-//   'tuvalu', //img src
-//   'Ukraine',
-//   'Question3',
-//   'Slovenia',
-//   'Tuvalu',
-//   'd' //correct answer
-// );
-// new QuestionConstructor(
-//   'What country does this flag represent?',
-//   'cameroon', //img src
-//   'Ukraine',
-//   'Cameroon',
-//   'Slovenia',
-//   'Tuvalu',
-//   'b' //correct answer
-// );
-// new QuestionConstructor(
-//   'What country does this flag represent?',
-//   'ukraine', //img src
-//   'Ukraine',
-//   'Cameroon',
-//   'Slovenia',
-//   'Tuvalu',
-//   'a' //correct answer
-// );
+
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'jordan', //img src
+  'Iraq',
+  'Afghanistan',
+  'Slovenia',
+  'Jordan',
+  'd' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'kyrgyzstan', //img src
+  'Russia',
+  'Kyrgyzstan',
+  'Ireland',
+  'Sudan',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'laos', //img src
+  'Laos',
+  'Cameroon',
+  'China',
+  'Japan',
+  'a' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'morocco', //img src
+  'Chile',
+  'Australia',
+  'Morocco',
+  'Germany',
+  'c' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'mozambique', //img src
+  'Brazil',
+  'Mozambique',
+  'Austria',
+  'Argentina',
+  'b' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'north-macedonia', //img src
+  'Algeria',
+  'Czech Republic',
+  'Cuba',
+  'North Macedonia',
+  'd' //correct answer
+);
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'suriname', //img src
+  'Greece',
+  'Suriname',
+  'Albania',
+  'Bulgaria',
+  'b' //correct answer
+);
+
+
+new QuestionConstructor(
+  'What country does this flag represent?',
+  'ukraine', //img src
+  'Ukraine',
+  'Bahrain',
+  'Poland',
+  'Croatia',
+  'a' //correct answer
+);
 
 function renderQuiz() {
-  let currentQuizQuestion = questionsArray[currentQuestion];
   flag.src = questionsArray[currentQuestion].src;
   backCard.src = questionsArray[currentQuestion].back;
-  console.log(flag);
   quizquestion.innerHTML = questionsArray[currentQuestion].question;
   labela.innerHTML = questionsArray[currentQuestion].a;
   labelb.innerHTML = questionsArray[currentQuestion].b;
@@ -160,13 +165,30 @@ function renderQuiz() {
   labeld.innerHTML = questionsArray[currentQuestion].d;
 }
 
+
+function TestsFunction() {
+  var T = document.getElementById("down");
+  T.style.display = "block";  
+
+};
+
+const arrowIcon= document.getElementById('arrowicon');
+
+
+function arrowRemover(){
+  arrowIcon.innerHTML = ' ';
+}
+
+arrowIcon.addEventListener('click',arrowRemover);
+
+
 renderQuiz();
 
 btn.addEventListener('click', () => {
   const selectedElement = document.querySelector(
     'input[name="answer"]:checked'
   );
-  //TODO: Add timer/progress bar if time permits
+
   
   selectedElement.checked = false;
   if (selectedElement.value === questionsArray[currentQuestion].correct) {
@@ -189,7 +211,7 @@ btn.addEventListener('click', () => {
     results.appendChild(div);
     let h1 = document.createElement('h1');
     h1.classList.add('h1results');
-    h1.textContent = 'Quiz Results';
+    h1.textContent = 'Results';
     div.appendChild(h1);
     let divresults = document.createElement('div');
     divresults.classList.add('resultslist');
@@ -199,21 +221,12 @@ btn.addEventListener('click', () => {
     let ol2 = document.createElement('ol');
     ol2.classList.add('correctli');
     divresults.appendChild(ol2);
-    // TODO: Need to show user what answers they answered correctly/incorrectly
-    for(let i = 0; i < correctAnswers.length; i++) {
-      let li = document.createElement('li');
-      li.classList.add('resultsli');
-      if(correctAnswers[i] === 1) {
-        li.textContent = `Correct`;
-        ol.appendChild(li);
-      } else {
-        li.textContent = `Incorrect`;
-        ol.appendChild(li);
-      }
-    }
-    for(let j = 0; j < questionsArray.length; j++) {
+    for(let j = 0; j < correctAnswers.length; j++) {
+      
       let li2 = document.createElement('li');
       let p2 = document.createElement('p');
+      let p3 = document.createElement('p');
+      p3.classList.add('check');
       p2.textContent = questionsArray[j].country;
       let img = document.createElement('img');
       img.classList.add('liimg');
@@ -221,6 +234,13 @@ btn.addEventListener('click', () => {
       ol2.appendChild(li2);
       li2.appendChild(p2);
       li2.appendChild(img);
+      li2.appendChild(p3);
+      if(correctAnswers[j] === 1) {
+        p3.innerHTML = '<i class="fas fa-check"></i>';
+      } else {
+        p3.innerHTML = '<i class="fas fa-times"></i>';
+
+      }
 
     }
     // Displays the amount of questions the user answered correctly
@@ -262,7 +282,3 @@ btn.addEventListener('click', () => {
   renderQuiz();
   
 });
-
-
-
-
