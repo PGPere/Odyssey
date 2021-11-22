@@ -6,12 +6,12 @@ let leaderInfo = [];
 
 let leaderInformation = localStorage.getItem('linfo');
 if (leaderInformation) {
-let parseleaderInfo = JSON.parse(leaderInformation);
-for (let linfo of parseleaderInfo) {
-  let name = linfo.name;
-  let score = linfo.score;
-  makeleaderScoreInfo(name,score);
-}
+  let parseleaderInfo = JSON.parse(leaderInformation);
+  for (let linfo of parseleaderInfo) {
+    let name = linfo.name;
+    let score = linfo.score;
+    makeleaderScoreInfo(name, score);
+  }
 }
 
 let tlabel = ['Player', 'Score'];
@@ -23,22 +23,21 @@ localStorage.removeItem(tally);
 
 console.log(storeName + scoresession);
 
-if (storeName !== null) {
-makeleaderScoreInfo(storeName,scoresession);
+if (storeName !== null && scoresession !== null) {
+  makeleaderScoreInfo(storeName, scoresession);
 }
 
-function leaderScoreInfo (name,score) {
+function leaderScoreInfo(name, score) {
   this.name = name;
   this.score = score;
 }
 
-function makeleaderScoreInfo (name,score) {
-  let ScoreObj = new leaderScoreInfo(name,score);
+function makeleaderScoreInfo(name, score) {
+  let ScoreObj = new leaderScoreInfo(name, score);
   leaderInfo.push(ScoreObj);
 }
 
 storeLeaderscore();
-
 
 function storeLeaderscore() {
   let stringifiedleaderinfo = JSON.stringify(leaderInfo);
@@ -60,21 +59,21 @@ function renderHeader() {
 
 function renderTable() {
   for (let i = 0; i < leaderInfo.length; i++) {
-  let tr = document.createElement('tr');
-  userTableBody.appendChild(tr);
-  let td = document.createElement('td');
-  td.textContent = leaderInfo[i].name;
-  tr.appendChild(td);
-  let tdcookie = document.createElement('td');
-  tdcookie.textContent = leaderInfo[i].score;
-  tr.appendChild(tdcookie);
+    let tr = document.createElement('tr');
+    userTableBody.appendChild(tr);
+    let td = document.createElement('td');
+    td.textContent = leaderInfo[i].name;
+    tr.appendChild(td);
+    let tdcookie = document.createElement('td');
+    tdcookie.textContent = leaderInfo[i].score;
+    tr.appendChild(tdcookie);
   }
 }
 
 leaderInfo.sort((a, b) => b.score - a.score);
 
 leaderInfo.forEach((e) => {
-    console.log(`${e.name} ${e.score}`);
+  console.log(`${e.name} ${e.score}`);
 });
 
 renderHeader();
