@@ -11,7 +11,7 @@ function handleSubmit(event) {
   sessionStorage.setItem(keyName, userName);
 
   console.log(userName);
-  window.open('quiz.html#quizheader', '_self'); 
+  window.open('quiz.html#quizheader', '_self');
   //quiz.html#quiz
 }
 
@@ -119,7 +119,7 @@ btn.addEventListener('click', () => {
   const selectedElement = document.querySelector(
     'input[name="answer"]:checked'
   );
-  
+
   selectedElement.checked = false;
   if (selectedElement.value === questionsArray[currentQuestion].correct) {
     score++;
@@ -135,17 +135,15 @@ btn.addEventListener('click', () => {
   renderQuiz();
 });
 
-
 // Create Leaderscore Info
 
-let leaderInfo =[]
+let leaderInfo = [];
 
 let storeName = sessionStorage.getItem(keyName);
 
 console.log(storeName);
 
-let z = {name:storeName,
-        tally: score}
+let z = { name: storeName, tally: score };
 
 leaderInfo.push(z);
 
@@ -158,4 +156,3 @@ function storeLeaderscore() {
 }
 
 storeLeaderscore();
-
