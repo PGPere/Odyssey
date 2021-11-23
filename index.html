@@ -1,128 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Odyssey</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/modal.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <a href="aboutme.html">
-            <li>About Us</li>
-          </a>
-          <a href="quiz.html">
-            <li>Begin your Odyssey</li>
-          </a>
-          <a href="">
-            <li>Leader Board</li>
-          </a>
-        </ul>
-      </nav>
-    </header>
-    <div id="image">
-      <h2>Odyssey</h2>
-    </div>
-    <div id="text">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat,
-        quibusdam tempora corrupti sed facilis, voluptatibus sapiente impedit
-        unde nulla molestias necessitatibus quae qui iure. Quibusdam in impedit
-        nulla sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Sint explicabo suscipit ex eius, nemo natus repellat odio laboriosam ab
-        nam iusto commodi. Beatae deserunt quod accusamus magnam cupiditate
-        facilis facere.
-      </p>
-    </div>
-    <div id="button-container">
-      <button id="myBtn">BEGIN YOUR ODYSSEY</button>
-    </div>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="formContainer">
-          <form id="form">
-            <fieldset>
-              <legend>
-                Take our quiz to help you pick your next vacation destination!
-              </legend>
-              <label
-                >Enter your name:
-                <input type="text" name="userName" required />
-              </label>
-            </fieldset>
-            <div id="button">
-              <button id="start-button" type="submit">START</button>
-            </div>
-          </form>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odyssey</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <a href="">
+          <li> About Us</li>
+        </a>
+        <a id="button2" href="quiz.html#quizheader">
+          <li>Begin your Odyssey</li>
+        </a>
+        <a href="leaderboard.html">
+          <li>Leader Board</li>
+        </a>
+      </ul>
+    </nav>
+  </header>
+  <div id="image">
+    <h2>Odyssey</h2>
+  </div>
+  <div id='arrowicon'>
+    <a class="btn btn-lib" id="disappear" role="button" data-toggle="collapse" href="#collapseEX1" aria-expanded="false"
+      aria-controls="collapseEX1" onclick="TestsFunction()" style="display:block;" onclick="this.style.display='none'">
+      <p><span>&#9759;</span></p>
+    </a>
+  </div>
+  <div class="collapse" id="collapseEX1">
+    <div id='down' style="display:none">
+      <div id="text">
+        <p id="artsyfont"> &#9989;
+          We are a dynamic gaming platform for educators, travelers, and trivia players.
+        </p>
+        <p id="artsyfont"> &#9989; We built an interactive quiz of 10 country flags, showcasing hidden-gem travel
+          destinations.
+        </p>
+        <p id="artsyfont">&#9989;
+          We seek to raise awareness on the COVID hard-hit places with tourism potential.
+        </p>
+      </div>
+      <div id="odysseyButton">
+        <button id="myBtn">
+          TAKE OUR QUIZ </button>
+      </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="formContainer">
+            <form id="form">
+              <fieldset>
+                <legend>
+                  Take our quiz to help you pick your next vacation destination!
+                </legend>
+                <label>Enter your name:
+                  <input type="text" name="userName" required />
+                </label>
+              </fieldset>
+              <div id="button">
+                <button id="start-button" type="submit">START</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-    <div id="container-one">
-      <div>
-        <img src="images/boat.jpg" alt="picture of a boat" class="image-one" />
+      <div id="container-one">
+        <div>
+          <img src="images/boat.jpg" alt="picture of a boat" class="image-one" />
+        </div>
+        <div class="p-text">
+          <p>
+            &#127757; Dreaming about your next get-away but need help with brainstorming a destination? Take our
+            Odyssey quiz
+            and begin exploring your options!
+          </p>
+        </div>
       </div>
-      <div class="p-text">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit harum
-          libero, accusamus ab ipsa ducimus deserunt atque quae beatae
-          consequatur temporibus. Tempore, mollitia voluptatibus explicabo illum
-          corrupti quisquam porro error!
-        </p>
+      <div id="container-two">
+        <div class="p-text">
+          <p>
+            &#129299; Big on geography trivia? Want to see how many country flags you can recognize? Take our Odyssey
+            quiz and see
+            how well you score in the Leader Board!
+          </p>
+        </div>
+        <div>
+          <img src="images/rice-plantation.jpg" alt="picture of a rice plantation" class="image-one" />
+        </div>
       </div>
-    </div>
-    <div id="container-two">
-      <div class="p-text">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit harum
-          libero, accusamus ab ipsa ducimus deserunt atque quae beatae
-          consequatur temporibus. Tempore, mollitia voluptatibus explicabo illum
-          corrupti quisquam porro error!
-        </p>
+      <div id="container-three">
+        <div>
+          <img src="images/cancun.jpg" alt="picture of a beach" class="image-one" />
+        </div>
+        <div class="p-text">
+          <p>
+            &#128587;
+            Are you a teacher looking for an interactive learning and assessment tool? Showcase our Odyssey quiz
+            platform in class for dynamic instruction!
+          </p>
+        </div>
       </div>
-      <div>
-        <img
-          src="images/rice-plantation.jpg"
-          alt="picture of a rice plantation"
-          class="image-one"
-        />
-      </div>
-    </div>
-    <div id="container-three">
-      <div>
-        <img
-          src="images/cancun.jpg"
-          alt="picture of a beach"
-          class="image-one"
-        />
-      </div>
-      <div class="p-text">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit harum
-          libero, accusamus ab ipsa ducimus deserunt atque quae beatae
-          consequatur temporibus. Tempore, mollitia voluptatibus explicabo illum
-          corrupti quisquam porro error!
-        </p>
-      </div>
-    </div>
-    <script src="js/modal.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+      <script src="js/modal.js"></script>
+      <script src="js/app.js"></script>
+</body>
+
 </html>
