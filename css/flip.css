@@ -20,16 +20,9 @@
   transform: rotateY(180deg);
 }
 
-/* .card:active {
-  transform: scale(0.97);
-  transition: transform .2s;
-} */
-
 
 .front-face,
 .back-face {
-  /* width: 600px;
-  height: 400px; */
   position: absolute;
   border-radius: 5px;
   backface-visibility: hidden;

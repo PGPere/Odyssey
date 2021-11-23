@@ -62,7 +62,7 @@ legend {
   justify-content: center;
 }
 
-button {
+#start-button {
   width: 130px;
   height: 40px;
   margin: 1rem 0;
