@@ -1,17 +1,18 @@
 'use strict';
 
 // Create Leaderscore Info
-
+const keyName = 'currentUser';
+const tally = 'puntos';
 let leaderInfo = [];
 
 let leaderInformation = localStorage.getItem('linfo');
 if (leaderInformation) {
-let parseleaderInfo = JSON.parse(leaderInformation);
-for (let linfo of parseleaderInfo) {
-  let name = linfo.name;
-  let score = linfo.score;
-  makeleaderScoreInfo(name,score);
-}
+  let parseleaderInfo = JSON.parse(leaderInformation);
+  for (let linfo of parseleaderInfo) {
+    let name = linfo.name;
+    let score = linfo.score;
+    makeleaderScoreInfo(name, score);
+  }
 }
 
 let tlabel = ['Player', 'Score'];
@@ -23,22 +24,21 @@ localStorage.removeItem(tally);
 
 console.log(storeName + scoresession);
 
-if (storeName !== null) {
-makeleaderScoreInfo(storeName,scoresession);
+if (storeName !== null && scoresession !== null) {
+  makeleaderScoreInfo(storeName, scoresession);
 }
 
-function leaderScoreInfo (name,score) {
+function LeaderScoreInfo(name, score) {
   this.name = name;
   this.score = score;
 }
 
-function makeleaderScoreInfo (name,score) {
-  let ScoreObj = new leaderScoreInfo(name,score);
+function makeleaderScoreInfo(name, score) {
+  let ScoreObj = new LeaderScoreInfo(name, score);
   leaderInfo.push(ScoreObj);
 }
 
 storeLeaderscore();
-
 
 function storeLeaderscore() {
   let stringifiedleaderinfo = JSON.stringify(leaderInfo);
