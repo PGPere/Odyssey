@@ -63,7 +63,11 @@ function renderTable() {
   let tr = document.createElement('tr');
   userTableBody.appendChild(tr);
   let td = document.createElement('td');
+  if (i == 0) {
+  td.textContent = '👑 ' +leaderInfo[i].name+ ' 👑';
+  } else {
   td.textContent = leaderInfo[i].name;
+  }
   tr.appendChild(td);
   let tdcookie = document.createElement('td');
   tdcookie.textContent = leaderInfo[i].score;
@@ -72,10 +76,6 @@ function renderTable() {
 }
 
 leaderInfo.sort((a, b) => b.score - a.score);
-
-leaderInfo.forEach((e) => {
-    console.log(`${e.name} ${e.score}`);
-});
 
 renderHeader();
 renderTable();

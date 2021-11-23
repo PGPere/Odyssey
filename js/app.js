@@ -179,7 +179,7 @@ function arrowRemover(){
   arrowIcon.innerHTML = ' ';
 }
 
-arrowIcon.addEventListener('click',arrowRemover);
+// arrowIcon.addEventListener('click',arrowRemover);
 
 
 renderQuiz();

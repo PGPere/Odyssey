@@ -118,7 +118,7 @@ div img {
 table {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-top: 5rem;
-  width: 40%;
+  width: 50%;
 }
 
 table.center {
@@ -128,48 +128,43 @@ table.center {
 
 table,
 td {
-  border: 1px solid rgb(112, 159, 165);
+  border: 4px solid white;
 }
 
 @keyframes example {
   from {
-    background-color: gold;
+    background-color: blueviolet;
   }
   to {
-    background-color: whitesmoke;
+    background-color: rgb(167, 113, 218);
   }
 }
 
 td {
-  padding: 2rem;
+  padding: 1rem;
   font-size: 1cm;
-  font-weight: bold;
-  color: blueviolet;
+  font-weight: bolder;
+  color: white;
+  background-color: rgb(167, 113, 218);
   text-align: center;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  background-color: whitesmoke;
+  text-shadow: -2px 0 rgb(63, 63, 63), 0 2px rgb(63, 63, 63),
+    -2px 0 rgb(63, 63, 63), 0 2px rgb(63, 63, 63);
   animation-name: example;
-  animation-duration: 1s;
+  animation-duration: 1.25s;
+  animation-iteration-count: 4;
+  animation-direction: alternate;
 }
 
 thead th {
   font-weight: bold;
   color: whitesmoke;
-  font-size: 1cm;
+  font-size: 1.25cm;
   background-color: blueviolet;
+  text-shadow: -2px 0 black, 0 2px black, -2px 0 black, 0 2px black;
   text-align: center;
   vertical-align: middle;
-  height: 1.5cm;
-}
-
-tfoot {
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-  height: 2rem;
-  background-color: darkblue;
-  color: white;
-  font-size: large;
-  text-align: center;
+  height: 1.8cm;
+  border: 4px solid white;
 }
 
 form {
