@@ -10,15 +10,13 @@ const labelc = document.getElementById('ctext');
 const labeld = document.getElementById('dtext');
 let flag = document.querySelector('.front-face');
 let backCard = document.querySelector('.back-face');
+const qTally = 'puntos';
 
 const quizquestion = document.getElementById('quizquestion');
 let questionsArray = [];
 let score = 0;
 let currentQuestion = 0;
 let correctAnswers = [];
-
-const keyName = 'currentUser';
-const tally = 'puntos';
 
 function QuestionConstructor(
   question,
@@ -147,6 +145,8 @@ function renderQuiz() {
 
 renderQuiz();
 
+
+
 btn.addEventListener('click', () => {
   const selectedElement = document.querySelector(
     'input[name="answer"]:checked'
@@ -161,7 +161,7 @@ btn.addEventListener('click', () => {
     correctAnswers.push(0);
   }
 
-  localStorage.setItem(tally, score);
+  localStorage.setItem(qTally, score);
 
   if (currentQuestion === questionsArray.length - 1) {
     //Removes the quiz and then appends the results page to the DOM
@@ -229,13 +229,10 @@ btn.addEventListener('click', () => {
     leaderboard.addEventListener('click', () => {
       location.href = 'leaderboard.html';
     });
-    // storeLeaderscore();
-    // sessionStorage.clear();
   }
 
   console.log(questionsArray[currentQuestion].correct);
   console.log(score);
-  console.log(sessionStorage.getItem(keyName));
   console.log(correctAnswers);
   currentQuestion++;
   renderQuiz();

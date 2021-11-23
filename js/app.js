@@ -1,7 +1,7 @@
 'use strict';
 
 function TestsFunction() {
-  var T = document.getElementById('down');
+  let T = document.getElementById('down');
   T.style.display = 'block';
 }
 
@@ -12,3 +12,4 @@ function arrowRemover() {
 }
 
 arrowIcon.addEventListener('click', arrowRemover);
+

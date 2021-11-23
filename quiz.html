@@ -8,8 +8,9 @@
   <title>Odyssey</title>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/flip.css" />
-  <link rel="stylesheet" href= "css/quiz.css" />
-  <link rel="stlyesheet"  href= "css/style.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+  <link rel="stlyesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/modal.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&display=swap" rel="stylesheet" />
@@ -23,7 +24,7 @@
         <a href="">
           <li>About Us</li>
         </a>
-        <a href="">
+        <a id="button2" href="">
           <li>Begin your Odyssey</li>
         </a>
         <a href="leaderboard.html">
@@ -37,6 +38,26 @@
       <h2>Odyssey</h2>
     </a>
   </div>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="formContainer">
+        <form id="form">
+          <fieldset>
+            <legend>
+              Take our quiz to help you pick your next vacation destination!
+            </legend>
+            <label>Enter your name:
+              <input type="text" name="userName" required />
+            </label>
+          </fieldset>
+          <div id="button">
+            <button id="start-button" type="submit">START</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <div class="uqc">
     <div class="quizcontainer" id="quiz">
       <div id="quizheader">
@@ -49,34 +70,29 @@
         </section>
         <h3>Hover over the image for hints</h3>
         <div class="countdowntimer">
-      </div>
+        </div>
         <ul>
           <li><input type="radio" id="a" name="answer" class="answer" value="a"></input>
             <label for="a" id="atext"></label>
           </li>
-
           <li><input type="radio" id="b" name="answer" class="answer" value="b"></input>
             <label for="b" id="btext"></label>
           </li>
-
           <li><input type="radio" id="c" name="answer" class="answer" value="c"></input>
             <label for="c" id="ctext"></label>
           </li>
-
           <li><input type="radio" id="d" name="answer" class="answer" value="d"></input>
             <label for="d" id="dtext">Answer</label>
           </li>
         </ul>
         </h2>
       </div>
-
       <button id="submit">Submit</button>
-
     </div>
   </div>
   <script src="js/quiz.js"></script>
   <script src="js/flip.js"></script>
-  <script src="js/modal.js"></script>
+  <script src="js/modal-quiz.js"></script>
 </body>
 
 </html>
