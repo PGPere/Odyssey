@@ -13,3 +13,4 @@ function arrowRemover() {
 
 arrowIcon.addEventListener('click', arrowRemover);
 
+
