@@ -9,25 +9,6 @@ let span = document.getElementsByClassName('close')[0];
 let userName = '';
 const keyNameModal = 'currentUser';
 
-btn3.onclick = function () {
-  modal.style.display = 'block';
-  return false;
-};
-
-btn2.onclick = function () {
-  modal.style.display = 'block';
-};
-
-span.onclick = function () {
-  modal.style.display = 'none';
-};
-
-window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.style.display = 'none';
-  }
-};
-
 function handleSubmit(event) {
   event.preventDefault();
   let userNameInput = event.target.userName.value;

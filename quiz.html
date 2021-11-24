@@ -7,23 +7,23 @@
   <title>Odyssey</title>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/flip.css" />
-  <link rel="stylesheet" href="css/quiz.css" />
+  <!-- <link rel="stylesheet" href="css/quiz.css" /> -->
   <link rel="stlyesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+  <link rel="stylesheet" href="css/modal.css">
   <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/4a17af1541.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
   <header>
     <nav>
       <ul>
-        <a href="">
+        <a href="aboutme.html">
           <li>About Us</li>
         </a>
-        <a id="button2" href="">
+        <!-- <a id="button2" href=""> -->
           <li>Begin your Odyssey</li>
         </a>
         <a href="leaderboard.html">
@@ -36,26 +36,6 @@
     <a href="index.html#quizheader">
       <h2>Odyssey</h2>
     </a>
-  </div>
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div id="formContainer">
-        <form id="form">
-          <fieldset>
-            <legend>
-              Take our quiz to help you pick your next vacation destination!
-            </legend>
-            <label>Enter your name:
-              <input type="text" name="userName" required />
-            </label>
-          </fieldset>
-          <div id="button">
-            <button id="start-button" type="submit">START</button>
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
   <div class="uqc">
     <div class="quizcontainer" id="quiz">
@@ -86,12 +66,13 @@
         </ul>
         </h2>
       </div>
-      <button id="submit">Submit</button>
+      <button id="submit" class="submit">Submit</button>
     </div>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/quiz.js"></script>
   <script src="js/flip.js"></script>
-  <script src="js/modal-quiz.js"></script>
+  <script src="js/aboutme.js"></script>
 </body>
 
 </html>
