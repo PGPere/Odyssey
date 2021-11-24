@@ -1,7 +1,9 @@
 body {
-  background-image: linear-gradient(315deg,
-      rgb(190, 190, 190) 0%,
-      rgb(241, 241, 241) 90%);
+  background-image: linear-gradient(
+    315deg,
+    rgb(190, 190, 190) 0%,
+    rgb(241, 241, 241) 90%
+  );
 }
 
 nav {
@@ -74,12 +76,11 @@ a {
 
 button {
   margin-bottom: 3rem;
-  border-radius: 20px;
 }
 
-button:hover {
-  background-color: rgb(231, 226, 226);
-}
+/* button:hover {
+  opacity: 0.8;
+} */
 
 .uqc {
   display: flex;
@@ -97,7 +98,6 @@ button:hover {
 .quizcontainer {
   border-radius: 10px;
   width: 600px;
-  overflow: hidden;
   display: grid;
   place-content: center;
 }
@@ -106,23 +106,20 @@ button:hover {
   padding: 4rem;
 }
 
-#submit  {
-  width: 75%;
-  height: 40px;
-  margin: 1rem auto 4rem auto;
-  padding: 10px 25px;
-  border: 2px solid rgb(136, 136, 136);
-  font-family: 'Russo One', sans-serif;
-  font-weight: 500;
-  background: transparent;
+.submit {
+  width: 40%;
+  margin: auto;
+  border: none;
   cursor: pointer;
+  padding: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-family: 'Russo One', sans-serif;
+  margin-bottom: 7rem;
+  background-color: transparent;
+  border: 2px solid rgb(136, 136, 136);
   transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-}
-
-#submit:hover {
-  opacity: 0.8;
 }
 
 #quizquestion {
@@ -185,11 +182,24 @@ ol,
 
 .retake {
   width: 18rem;
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  border: 2px solid rgb(136, 136, 136);
+  border-radius: 5px;
 }
 
 .leaderboard {
   width: 18rem;
   margin-left: 1rem;
+  padding: 1rem;
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  border: 2px solid rgb(136, 136, 136);
+  border-radius: 5px;
 }
 
 .buttons {
@@ -245,4 +255,8 @@ ol,
 
 .fas.fa-times {
   color: red;
+}
+
+html {
+  scroll-behavior: smooth;
 }
