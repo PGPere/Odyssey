@@ -123,6 +123,7 @@ table {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-top: 5rem;
   width: 50%;
+
 }
 
 table.center {
@@ -137,21 +138,21 @@ td {
 
 @keyframes example {
   from {
-    background-color: blueviolet;
+    background-color: rgb(117, 117, 117);
   }
   to {
-    background-color: rgb(167, 113, 218);
+    background-color: rgb(177, 177, 177);
   }
 }
 
 td {
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
   padding: 1rem;
   font-size: 1cm;
-
-  font-weight: bolder;
-  color: white;
-  background-color: rgb(167, 113, 218);
-
+  color: rgba(253, 253, 253, 0.945);
+  /* background-color: rgb(167, 113, 218); */
+  background-color: rgb(177, 177, 177);
   text-align: center;
   text-shadow: -2px 0 rgb(63, 63, 63), 0 2px rgb(63, 63, 63),
     -2px 0 rgb(63, 63, 63), 0 2px rgb(63, 63, 63);
@@ -162,10 +163,12 @@ td {
 }
 
 thead th {
-  font-weight: bold;
-  color: whitesmoke;
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
+  color: rgba(241, 241, 241, 0.932);
   font-size: 1.25cm;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
+  background-color: rgb(117, 117, 117);
   text-shadow: -2px 0 black, 0 2px black, -2px 0 black, 0 2px black;
   text-align: center;
   vertical-align: middle;
